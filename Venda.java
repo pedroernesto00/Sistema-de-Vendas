@@ -1,17 +1,23 @@
 import java.util.*;
 
-public class Venda implements Comparator{
+public class Venda{
     
     List<Produto> venda = new LinkedList<Produto>();
     String vendedor;
-    Date data;
-    double total;
+    String data;
+    double preco_total;
+    int quantidade_total;
     
-    Venda(Date data, String vendedor) {
+    Venda(String data, String vendedor) {
         this.data = data;
         this.vendedor = vendedor;
     }
     
+    void adicionarProduto(Produto p1) {
+    	venda.add(p1);
+    	this.quantidade_total += 1;
+    	this.preco_total += p1.preco;
+    }
 
     void listarProdutos() {
         for (Produto p: venda) {
@@ -19,13 +25,8 @@ public class Venda implements Comparator{
         }
     }
 
-    void setTotal() {
-        for (Produto p : venda) {
-            this.total += p.preco;
-        }
-    }
 
-    Date getData() {
+    String getData() {
         return this.data;
     }
 
@@ -33,9 +34,12 @@ public class Venda implements Comparator{
         return this.vendedor;
     }
 
-    double getTotal() {
-        return this.total;
+    double getPrecoTotal() {
+        return this.preco_total;
     }
     
+    int getQuantidadeTotal() {
+    	return quantidade_total;
+    }
     
 }

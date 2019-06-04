@@ -1,12 +1,18 @@
 public class Produto {
-    float preco;
+    double preco;
     int quantidade;
     String nome, descricao;
 
-    Produto (String nome, String descricao, int quantidade, float preco) {
+    Produto (String nome, String descricao, int quantidade, double preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.quantidade = quantidade;
+        this.preco = preco;
+    }
+
+    Produto (String nome, String descricao, double preco) {
+        this.nome = nome;
+        this.descricao = descricao;
         this.preco = preco;
     }
 
@@ -18,11 +24,11 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    void setPreco (float preco) {
+    void setPreco (double preco) {
         this.preco = preco;
     }
     
-    float getPreco() {
+    double getPreco() {
         return this.preco;
     }
 
@@ -32,5 +38,9 @@ public class Produto {
     
     int getQuantidade() {
         return this.quantidade;
+    }
+
+     void decremento() {
+    	this.quantidade -= 1;
     }
 }
