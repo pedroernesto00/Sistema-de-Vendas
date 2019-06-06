@@ -11,15 +11,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 import javax.swing.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class LoginApp extends Application {
 
-    private HBox btnPanel;
+    private ImageView logoView;
+    private HBox PanelBtn;
     private Label login;
     private GridPane pane;
     private TextField usrFld;
@@ -27,13 +32,13 @@ public class LoginApp extends Application {
     private Button btnLogin, btnExit;
     private static Stage stage;
 
-    private void initComponents(){
+    private void initComponents() throws FileNotFoundException {
         pane = new GridPane();
-        pane.setPrefSize(1000, 200);
-        pane.setStyle("-fx-background-color: #141e30;");
+        pane.setPrefSize(1000, 400);
+//        pane.setStyle("-fx-background-color: #141e30;");
 
         login = new Label("Sign In");
-        login.setStyle("-fx-text-fill: #ffffff");
+//        login.setStyle("-fx-text-fill: #ffffff");
 
         usrFld = new TextField();
         usrFld.setPromptText("Usuario");
@@ -41,7 +46,8 @@ public class LoginApp extends Application {
         pswFld.setPromptText("Senha");
         btnLogin = new Button("Login");
         btnExit = new Button("Exit");
-        btnPanel = new HBox();
+        PanelBtn = new HBox();
+        initImage();
 
     }
 
@@ -49,13 +55,14 @@ public class LoginApp extends Application {
         pane.setHgap(1);
         pane.setVgap(10);
         pane.setAlignment(Pos.CENTER);
+        pane.setHalignment(logoView, HPos.CENTER);
         pane.setHalignment(login, HPos.CENTER);
-        btnPanel.getChildren().addAll(btnLogin, btnExit);
-        btnPanel.setSpacing(5);
-        pane.add(login, 0, 0);
+        PanelBtn.getChildren().addAll(btnLogin, btnExit);
+        PanelBtn.setSpacing(20);
+        pane.add(logoView, 0, 0);
         pane.add(usrFld, 0, 1);
         pane.add(pswFld, 0, 2);
-        pane.add(btnPanel, 0, 3);
+        pane.add(PanelBtn, 0, 3);
 
     }
 
@@ -74,6 +81,16 @@ public class LoginApp extends Application {
                     JOptionPane.ERROR_MESSAGE
             );
         }
+    }
+
+    private void initImage() throws FileNotFoundException {
+        FileInputStream img = new FileInputStream("/home/diego/Pictures/Logo.png");
+        Image logo = new Image(img);
+
+        logoView = new ImageView(logo);
+        logoView.setFitHeight(100);
+        logoView.setFitWidth(100);
+        logoView.setPreserveRatio(true);
     }
 
     @Override
