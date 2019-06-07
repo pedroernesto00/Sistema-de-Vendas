@@ -1,7 +1,7 @@
 package Model;
 
 import javafx.beans.property.*;
-public class ProdutoModelo implements Comparable<ProdutoModelo>{
+public class ProdutoModelo{
 
     private SimpleStringProperty nome = new SimpleStringProperty(this, "nome", null);
     private IntegerProperty qtd = new SimpleIntegerProperty(this, "qtd", 0);
@@ -77,8 +77,4 @@ public class ProdutoModelo implements Comparable<ProdutoModelo>{
         return true;
     }
 
-    @Override
-    public int compareTo(ProdutoModelo produtoModelo) {
-        return (this.getNome()).compareTo(produtoModelo.getNome());
-    }
 }

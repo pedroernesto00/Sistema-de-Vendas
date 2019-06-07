@@ -1,33 +1,17 @@
 package Model;
 
-import javafx.beans.property.*;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class VendaModelo{
-    private ProdutoModelo produto;
-    private IntegerProperty id = new SimpleIntegerProperty(this, "id", 0);
-    private IntegerProperty valor = new SimpleIntegerProperty(this, "valor", 0);
+    private String funcionario;
+    private ObservableList<ProdutoModelo> listaDeProdutos = FXCollections.observableArrayList();
+    private int id;
+    private int valor;
 
-    public int getId() {
-        return id.get();
+    public VendaModelo(String nome, ProdutoModelo produto, int id, int valor){
+
     }
 
-    public IntegerProperty idProperty() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id.set(id);
-    }
-
-    public int getValor() {
-        return valor.get();
-    }
-
-    public IntegerProperty valorProperty() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor.set(valor);
-    }
 }
