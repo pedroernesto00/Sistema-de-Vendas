@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.LoginController"
+          alignment="CENTER" hgap="10" vgap="10">
+    <padding><Insets top="40" right="20" bottom="40" left="20"/></padding>
+    <columnConstraints>
+        <ColumnConstraints minWidth="100" prefWidth="400"
+                           maxWidth="Infinity">
+        </ColumnConstraints>
+    </columnConstraints>
+
+    <ImageView GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="CENTER">
+        <image><Image url="@Logo.png" preserveRatio="true"
+                      requestedHeight="100" requestedWidth="100"/></image>
+    </ImageView>
+
+    <Label text="Sign in" GridPane.columnIndex="0" GridPane.rowIndex="1"
+           GridPane.columnSpan="2" GridPane.halignment="CENTER">
+        <font>
+            <Font name="Arial" size="24" ></Font>
+        </font>
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Label>
+
+    <TextField fx:id="usrFld" promptText="Username"
+               GridPane.columnIndex="0" GridPane.rowIndex="2" prefHeight="40"/>
+
+    <PasswordField fx:id="passFld" promptText="Password"
+                   GridPane.columnIndex="0" GridPane.rowIndex="3" prefHeight="40"/>
+
+    <Button fx:id="loginBtn"
+            text="Login"
+            prefHeight="40"
+            prefWidth="120"
+            GridPane.columnIndex="0" GridPane.columnSpan="2"
+            GridPane.rowIndex="4"
+            GridPane.halignment="CENTER"
+            onAction="#handleLogin"
+            defaultButton="true"
+    />
+
+</GridPane>
